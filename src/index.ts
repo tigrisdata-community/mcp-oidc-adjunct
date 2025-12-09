@@ -10,6 +10,7 @@ dotenv.config();
 const OIDC_PORT = process.env['PORT'] ? parseInt(process.env['PORT'], 10) : 4001;
 const OIDC_BASE_URL = process.env['OIDC_BASE_URL'] ?? `http://localhost:${OIDC_PORT}`;
 const SECRET = process.env['SESSION_SECRET'] ?? 'dev-secret-change-me';
+const JWKS = process.env['JWKS'] ? JSON.parse(process.env['JWKS']) : undefined;
 
 const store = new Keyv({ store: new KeyvTigris() });
 
@@ -20,6 +21,7 @@ const oidcServer = createOidcServer({
   baseUrl: OIDC_BASE_URL,
   port: OIDC_PORT,
   isProduction: process.env['NODE_ENV'] === 'production',
+  jwks: JWKS,
   onListen: (baseUrl) => {
     console.log(`OIDC Server running at ${baseUrl}`);
     console.log(`  Authorization: ${baseUrl}/authorize`);
