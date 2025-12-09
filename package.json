@@ -1,0 +1,29 @@
+{
+  "name": "@xena/mcp-oidc-adjunct",
+  "version": "0.0.1",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.10.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.24.3",
+    "@tigrisdata/keyv-tigris": "^1.0.7",
+    "dotenv": "^16.5.0",
+    "express-session": "^1.18.2",
+    "keyv": "^5.5.5",
+    "mcp-oidc-provider": "^1.0.2",
+    "openid-client": "^6.8.1"
+  }
+}
